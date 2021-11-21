@@ -8,8 +8,8 @@
         android:id="@+id/main"
         android:layout_width="wrap_content"
         android:layout_height="240dp"
-        android:scaleX="1"
-        android:scaleY="1">
+        android:scaleX="0"
+        android:scaleY="0">
 
         <RelativeLayout
             android:layout_width="match_parent"
