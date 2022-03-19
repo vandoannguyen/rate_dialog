@@ -1,8 +1,8 @@
 package com.example.moreapp.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,9 +40,8 @@ public class ItemAppAdapter extends RecyclerView.Adapter<ItemAppAdapter.ViewHold
         return viewHolder;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Glide.with(holder.itemView.getContext()).load(list.get(position).getLogoApp()).into(holder.imgIconApp);
         holder.txtAppName.setText(list.get(position).getName());
         holder.txtAppDescription.setText(list.get(position).getTitle());
@@ -62,7 +60,7 @@ public class ItemAppAdapter extends RecyclerView.Adapter<ItemAppAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list != null ? list.size() : 0;
     }
 
     public
